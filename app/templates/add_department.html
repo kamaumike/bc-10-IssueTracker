@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Add departments</h1>
+  {% for category, message in get_flashed_messages(with_categories = true) %}
+    <div class = "alert alert-danger">
+        {{ message }}
+    </div>
+  {% endfor %}
+  <form id = "form" action = "{{ request.path }}" method = "post">
+  	<div class="form-group">
+  		<label for="name">Department name:</label>
+	    <input type="text" class="form-control" id="name" name="name" placeholder="Add new department">
+	    <br>
+	    <input class="btn btn-success" type="submit" value="Add">
+  	</div>    
+  </form>
+
+{% endblock %}

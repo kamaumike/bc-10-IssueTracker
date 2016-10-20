@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Please login</h1>
+  <br>
+  <p>Please login to get access</p>
+  <br>
+  {% for category, message in get_flashed_messages(with_categories = true) %}
+    <div class = "alert alert-danger">
+        {{ message }}
+    </div>
+  {% endfor %}
+
+  <form id = "form" action="{{ request.path }}" method="post">
+  	<div class="form-group">
+	    <label for="email">Email:</label>
+		<input type="text" class="form-control" id="email" name="email" placeholder="Email" 
+		value="{{ request.form.email }}">
+		<br>
+		<label for="password">Password:</label>
+		<input type="password" class="form-control" id="password" name="password" placeholder="Password" 
+`		value="{{ request.form.password }}">
+		<br>
+		<input class="btn btn-success" type="submit" value="Login">
+		<br>
+	</div>
+  </form>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

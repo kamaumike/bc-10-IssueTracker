@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Add an issue</h1>
+  
+  {% for category, message in get_flashed_messages(with_categories = true) %}
+    <div class = "alert alert-danger">
+        {{ message }}
+    </div>
+  {% endfor %}
+
+  <form id = "form" action = "{{ request.path }}" method = "post">
+  	
+  	<div class="form-group">
+		<label for="comment">Issue Description:</label>
+		<textarea class="form-control" rows="5" id="comment" name="issue_description" placeholder="Describe your issue"></textarea>
+		</br>  		
+  		<label for="name">Priority:</label>
+	    <div class="radio">
+		<label><input type="radio" name="priority" value="low">Low</label>
+		</br>
+		<label><input type="radio" name="priority" value="medium">Medium</label>
+		</br>
+		<label><input type="radio" name="priority" value="high">High</label>
+		</div> 
+	    <br>
+	    <label for="sel1">Select a department to resolve the issue:</label>
+	    <select class="form-control" id="sel1" name="department_id">
+	    {% for department in departments %}
+	      <option value="{{ department.id }}">{{ department.name }}</option>
+	    {% endfor %}
+	    </select>
+	    <br>
+	    {% for user in users %}
+	      {{ user.id }}
+	    {% endfor %}
+		</br>
+	    <input class="btn btn-success" type="submit" value="Submit">
+  	</div>    
+  </form>
+
+{% endblock %}

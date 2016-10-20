@@ -1,0 +1,16 @@
+
+/*Resize the width of forms*/
+#form {
+	width:480px;
+	margin-left: 100px;
+	padding-left: 100px;
+}
+.jumbotron {
+	color: #09c;
+}
+.jumbotron h1 {
+	margin-top: 50px;
+}
+html {
+	background-color: #000;
+}

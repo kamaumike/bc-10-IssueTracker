@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+   <body> 
+      <h1>All issues</h1>        
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+      
+      </br></br>
+      <table>
+         <thead>
+            <tr>
+               <th>ISSUE</th>
+               <th>PRIORITY</th>
+               <th>STATUS</th>
+               <th>DATE RAISED</th>
+               <th>DEPARTMENT</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for issue in Issues %}
+               <tr>
+                  <td>{{ issue.issue_description }}</td>
+                  <td>{{ issue.priority }}</td>
+                  <td>{{ issue.status }}</td>
+                  <td>{{ issue.timestamp }}</td>
+                  <td>{{ issue.department_id }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+   </body>
+{% endblock %}
